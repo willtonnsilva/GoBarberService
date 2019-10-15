@@ -7,9 +7,11 @@ class UserController {
 
   async post (req, res) {
     console.log(req.body)
+    console.log(req.file)
     try {
-      req.body.avatar = 'teste.jpg';
-      await User.create(req.body)
+      const { filename: avatar } = req.file
+      console.log('avatar', avatar)
+      await User.create({ ...req.body, avatar })
       res.redirect('/')
     } catch (error) {
       console.log('erro ao criar usuario', error)
