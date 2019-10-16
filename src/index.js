@@ -1,4 +1,4 @@
 const server = require('./server')
-server.listen(3001, function () {
-  console.log('serviço na porta 3000')
+server.listen(4001, function () {
+  console.log('serviço na porta 4000')
 })
