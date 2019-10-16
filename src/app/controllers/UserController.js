@@ -10,11 +10,10 @@ class UserController {
     console.log(req.file)
     try {
       const { filename: avatar } = req.file
-      console.log('avatar', avatar)
       await User.create({ ...req.body, avatar })
       res.redirect('/')
     } catch (error) {
-      console.log('erro ao criar usuario', error)
+      req.flash('error', 'Erro ao criar usuário')
     }
   }
 }

@@ -3,6 +3,7 @@ const nunjucks = require('nunjucks')
 const path = require('path')
 const session = require('express-session')
 const FileStore = require('session-file-store')(session)
+const flash = require('connect-flash')
 
 class App {
   constructor () {
@@ -17,6 +18,7 @@ class App {
 
   middlewares () {
     this.express.use(express.urlencoded({ extended: false }))
+    this.express.use(flash())
     this.express.use(
       session({
         name: 'root',
@@ -25,7 +27,7 @@ class App {
         store: new FileStore({
           path: path.resolve(__dirname, '..', 'tmp', 'session')
         }),
-        saveUninitialized: false
+        saveUninitialized: true
       })
     )
   }
