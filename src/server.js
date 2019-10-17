@@ -23,11 +23,11 @@ class App {
       session({
         name: 'root',
         secret: 'MyAppSecret',
-        resave: true,
+        resave: false,
         store: new FileStore({
           path: path.resolve(__dirname, '..', 'tmp', 'session')
         }),
-        saveUninitialized: true
+        saveUninitialized: false
       })
     )
   }
