@@ -7,7 +7,7 @@ const guestMiddleware = require('./app/middlewares/guest')
 
 const userController = require('./app/controllers/UserController')
 const sessionController = require('./app/controllers/SessionController')
-const dashboardController = require('./app/controllers/dashboardController')
+const dashboardController = require('./app/controllers/DashboardController')
 const fileController = require('./app/controllers/FileController')
 
 routes.use('/app', authMiddleware)
